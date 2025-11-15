@@ -1,23 +1,8 @@
 import "./MainPageStyle.css";
 import {MY_APPS_ROUTE} from "../../utils/constants.ts";
 import {Link} from "react-router-dom";
-import {useEffect} from "react";
-import {appService} from "../../services/app.service.ts";
-import {useDispatch} from "react-redux";
-import {setApps} from "../../store/appsReducer.ts";
 
 export const MainPage = () => {
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        const getApps = async () => {
-            const data = await appService.getAll();
-            dispatch(setApps(data));
-            console.log(data);
-        }
-        getApps();
-    },[]);
 
 
     return (

@@ -1,12 +1,39 @@
 import "./MyAppsStyle.css";
+import {useDispatch, useSelector} from "react-redux";
+import type {RootState} from "../../store";
+import type {IAppResponse} from "../../types/app.types.ts";
+import {useEffect} from "react";
+import {appService} from "../../services/app.service.ts";
+import {setApps} from "../../store/appsReducer.ts";
+import {useNavigate} from "react-router";
+import {AppCreatePage} from "../AppCreatePage/AppCreatePage.tsx";
+import {APP_CREATE_ROUTE, APP_UPDATE_ROUTE} from "../../utils/constants.ts";
 
 
 export const MyApps = () => {
+
+    const {apps} = useSelector((state:RootState) => state.Apps);
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const getApps = async () => {
+            const {data} = await appService.getAll();
+            dispatch(setApps(data));
+            console.log(data);
+        }
+        getApps();
+    },[]);
+
     return (
         <div>
             <div className="headerApps">
                 <h2>Список приложений</h2>
-                <button>Добавить приложение</button>
+                <button onClick={() => navigate(APP_CREATE_ROUTE)}>
+                    Добавить приложение
+                </button>
             </div>
 
             <div>
@@ -31,153 +58,47 @@ export const MyApps = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">R
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>RuTube</strong></td>
-                            <td>ООО "Рутуб"</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">Г
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>Госуслуги</strong></td>
-                            <td>Минцифры России</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">С
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>СберБанк Онлайн</strong></td>
-                            <td>ПАО Сбербанк</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">V
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>VK Музыка</strong></td>
-                            <td>ООО "В Контакте"</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">Я
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>Яндекс Карты</strong></td>
-                            <td>ООО "Яндекс"</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">M
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>Mail.ru</strong></td>
-                            <td>ООО "ВК"</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">2
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>2TMC</strong></td>
-                            <td>ООО "ДубльГИС"</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="app-info">
-                                    <div className="app-icon">H
-                                    </div>
-                                </div>
-                            </td>
-                            <td><strong>HeadHunter</strong></td>
-                            <td>АО "Хадхантер"</td>
-                            <td><span className="status status-active">Активность</span></td>
-                            <td>
-                                <div className="actions">
-                                    <button className="btn btn-delete"><i className="fas fa-trash"></i> Удалить</button>
-                                    <button className="btn btn-edit"><i className="fas fa-edit"></i> Изменить</button>
-                                </div>
-                            </td>
-                        </tr>
+                        {apps.length > 0 &&
+                            apps.map((app: IAppResponse) => {
+                                return (
+                                    <tr key={app.AppID}>
+                                        <td>
+                                            <div className="app-info">
+                                                <div className="app-icon">
+                                                    {app.AppName.charAt(0)}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><strong>{app.AppName}</strong></td>
+                                        <td>{app.DeveloperName}</td>
+                                        <td><span className="status status-active">Активно</span></td>
+                                        <td>
+                                            <div className="actions">
+                                                <button className="btn btn-delete">
+                                                    <i className="fas fa-trash"></i> Удалить
+                                                </button>
+                                                <button
+                                                    className="btn btn-edit"
+                                                    onClick={() => navigate(APP_UPDATE_ROUTE)}>
+                                                    <i className="fas fa-edit"></i> Изменить
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        }
                         </tbody>
                     </table>
                 </div>
 
                 <div className="stats">
                     <div className="stat-card">
-                        <div className="stat-value">8</div>
+                        <div className="stat-value">{apps.length}</div>
                         <div className="stat-label">Всего приложений</div>
                     </div>
                     <div className="stat-card">
-                        <div className="stat-value">8</div>
+                        <div className="stat-value">{apps.length}</div>
                         <div className="stat-label">Активных</div>
                     </div>
                     <div className="stat-card">

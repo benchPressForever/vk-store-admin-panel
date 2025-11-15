@@ -4,15 +4,16 @@ export interface IAppResponse {
     "AppID": number;                    // Уникальный идентификатор приложения
 
     "AppName": string;                  // Название приложения
-    "SmallIconID": number;              // ID маленькой иконки
-    "BigIconID": number;                // ID большой иконки
-    "AppCardScreenshotsIDs": number;    // ID скриншотов для карточки приложения
-    "Rating": number;                   // Рейтинг приложения (например, 4.5)
+    "SmallIconID": string;              // ID маленькой иконки
+    "BigIconID": string;                // ID большой иконки
+    "AppCardScreenshotsIDs": string;    // ID скриншотов для карточки приложения
     "Categories": EnumCategories;       // Категория из перечисления
-    "AgeRestriction": string;           // Возрастное ограничение ("0+", "6+", "12+", "16+", "18+")
+    "AgeRestriction": number;           // Возрастное ограничение ("0+", "6+", "12+", "16+", "18+")
     "Description": string;              // Описание приложения
     "DeveloperID": number;              // ID разработчика
 
+
+    "Rating": number;                   // Рейтинг приложения (например, 4.5)
     "Downloads": number;                // Количество загрузок
     "DeveloperName": string;            // Имя разработчика
     "ReleaseDate": string;              // Дата релиза в формате ISO 8601
@@ -20,7 +21,9 @@ export interface IAppResponse {
     "SimilarApps": string;              // Список похожих приложений (возможно, JSON строка или IDs)
 }
 
-export type TypeAppFormCreate = Omit<IAppResponse,"AppID"|"Downloads"|"DeveloperName"|"ReleaseDate"|"EditorChoice"|"SimilarApps">;
+export type TypeAppFormCreate = Omit<IAppResponse, "AppID"> & {
+    CommentListID: number;
+};
 
 export type TypeAppFormUpdate = Partial<TypeAppFormCreate>;
 

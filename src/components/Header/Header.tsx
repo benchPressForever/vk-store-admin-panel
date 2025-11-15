@@ -22,7 +22,7 @@ function Header (){
                     <img src="./img/rustore.png" width={40} height={40} />
                 </Link>
                 <Link to = {MAIN_ROUTE}>
-                    <span style={ {color:"#0077ff",fontSize:"large",fontWeight:"bold"}}>RuStore</span>
+                    <span style={ {color:"#0077ff",fontSize:"large",fontWeight:"bold"}}>VkStore</span>
                     <span>developer</span>
                 </Link>
             </div>

@@ -15,7 +15,8 @@ class AppService{
     }
 
     async create(data : TypeAppFormCreate){
-        const response = await axiosWithAuth.post<IAppResponse>(this.BASE_URL,data)
+        console.log(data);
+        const response = await axiosWithAuth.post<IAppResponse>(`${this.BASE_URL}/create`,data)
         return response.data
     }
 
