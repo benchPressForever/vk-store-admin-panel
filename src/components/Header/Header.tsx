@@ -29,7 +29,6 @@ function Header (){
             <div className="actions">
                 {IsAuth ?
                     <>
-                        <Link to ={MAIN_ROUTE} >Статистика</Link>
                         <Link to = {MY_APPS_ROUTE} >
                             Мои приложения
                         </Link>

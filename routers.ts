@@ -16,6 +16,10 @@ import {AppUpdatePage} from "./src/pages/AppUpdatePage/AppUpdatePage";
 
 
 export const publicRouters = [
+    {
+        path: MAIN_ROUTE,
+        Component: MainPage,
+    },
   {
     path: LOGIN_ROUTE,
     Component: LoginPage,
