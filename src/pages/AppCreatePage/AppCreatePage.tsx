@@ -10,6 +10,7 @@ import {addApps} from "../../store/appsReducer.ts";
 
 export const AppCreatePage = () => {
 
+    /*
     const {User} = useSelector((state:RootState) => state.User);
     const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ export const AppCreatePage = () => {
             console.error('Meal create error:', error.message);
             console.log(error)
         }
-    });
+    });*/
 
 
     return (
