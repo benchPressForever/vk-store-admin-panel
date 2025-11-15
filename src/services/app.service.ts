@@ -9,7 +9,7 @@ class AppService{
 
 
     async getAll(){
-        const response = await axiosWithAuth.get<IAppResponse[]>(this.BASE_URL)
+        const response = await axiosWithAuth.get<{data:IAppResponse[]}>(this.BASE_URL)
 
         return response.data
     }

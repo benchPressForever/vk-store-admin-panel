@@ -6,7 +6,6 @@ import {useEffect} from "react";
 import {appService} from "../../services/app.service.ts";
 import {setApps} from "../../store/appsReducer.ts";
 import {useNavigate} from "react-router";
-import {AppCreatePage} from "../AppCreatePage/AppCreatePage.tsx";
 import {APP_CREATE_ROUTE, APP_UPDATE_ROUTE} from "../../utils/constants.ts";
 
 
@@ -21,6 +20,7 @@ export const MyApps = () => {
     useEffect(() => {
         const getApps = async () => {
             const {data} = await appService.getAll();
+            console.log(data);
             dispatch(setApps(data));
             console.log(data);
         }
