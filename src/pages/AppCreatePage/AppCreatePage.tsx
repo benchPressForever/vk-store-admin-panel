@@ -1,11 +1,12 @@
 import "./AppCreatePageStyle.css";
+/*
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import type {RootState} from "../../store";
 import {EnumCategories, type TypeAppFormCreate} from "../../types/app.types.ts";
 import {appService} from "../../services/app.service.ts";
 import { useMutation } from '@tanstack/react-query';
-import {addApps} from "../../store/appsReducer.ts";
+import {addApps} from "../../store/appsReducer.ts";*/
 
 
 export const AppCreatePage = () => {
