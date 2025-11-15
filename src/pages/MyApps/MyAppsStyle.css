@@ -1,0 +1,219 @@
+
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.apps-table {
+    width: 90%;
+    margin: 0 5%;
+    background: white;
+    border-radius:10px;
+    border-width: 1px;
+    border-color: #eaeaea;
+    border-style: solid;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #0077ff;
+    color: white;
+}
+
+th {
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+td {
+    padding: 16px 15px;
+    vertical-align: middle;
+}
+
+.app-info {
+    display: flex;
+    align-items: center;
+}
+
+.app-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.app-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.developer {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #e8f6ef;
+    color: #27ae60;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-delete {
+    background-color: #ffeaea;
+    color: #e74c3c;
+}
+
+.btn-delete:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #e8f4ff;
+    color: #3498db;
+}
+
+.btn-edit:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.stats {
+    display: flex;
+    width: 90%;
+    margin: 0 5%;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.stat-card {
+    text-align: center;
+    flex: 1;
+    padding: 15px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .apps-table {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.headerApps{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 90%;
+    padding: 0 5%;
+    margin: 2% 0;
+    justify-content: space-between;
+}
+
+.headerApps h2 {
+    margin: 0;
+    padding: 0;
+}

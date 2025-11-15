@@ -1,0 +1,59 @@
+import "./MainPageStyle.css";
+import {MY_APPS_ROUTE} from "../../utils/constants.ts";
+import {Link} from "react-router-dom";
+import {useEffect} from "react";
+import {appService} from "../../services/app.service.ts";
+import {useDispatch} from "react-redux";
+import {setApps} from "../../store/appsReducer.ts";
+
+export const MainPage = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const getApps = async () => {
+            const data = await appService.getAll();
+            dispatch(setApps(data));
+            console.log(data);
+        }
+        getApps();
+    },[]);
+
+
+    return (
+        <div className="MainPage">
+            <h1 className="size60" style = {{fontSize:"42px"}} >Добро пожаловать в RuStore для разработчиков!</h1>
+            <p className="size60" style = {{color:"#878787"}}>Откройте для себя новые возможности для роста и успеха на крупнейшей платформе мобильных приложений в России.
+                RuStore предоставляет вам все необходимые инструменты и поддержку для
+                эффективной разработки и распространения ваших приложений.</p>
+            <Link to = {MY_APPS_ROUTE}>
+                <button >Начать</button>
+            </Link>
+            <h2>Основные преимущества</h2>
+            <div className="Advantages">
+                <div>
+                    <img src="./img/rustore.png" width={60} height={60}/>
+                    <h4>Простая публикация</h4>
+                    <p>Упрощенный процесс загрузки и управления приложениями.
+                        Интуитивно понятный интерфейс и подробные инструкции
+                        помогут вам быстро вывести свой продукт на рынок.</p>
+                </div>
+
+                <div>
+                    <img src="./img/rustore.png"  width={60} height={60} />
+                    <h4>Широкая аудитория</h4>
+                    <p>Получите доступ к миллионам активных пользователей по всей России.
+                        RuStore — это мощный канал для расширения вашей пользовательской базы и увеличения дохода</p>
+                </div>
+
+                <div>
+                    <img src="./img/rustore.png"  width={60} height={60} />
+                    <h4>Безопасная платформа</h4>
+                    <p>Мы обеспечиваем надежную защиту ваших приложений.
+                        Строгие проверки безопасности и постоянный мониторинг гарантируют стабильную и безопасную среду.</p>
+                </div>
+
+            </div>
+        </div>
+    )
+}

@@ -1,0 +1,63 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+  color: black;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #0077ff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  background-color: white;
+    color: #0077ff;
+    border-color: #0077ff;
+    transition: 0.5s;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+a:link, a:visited {
+    color: inherit; /* Цвет текста ссылки */
+    text-decoration: none; /* Убирает подчёркивание под текстом */
+}
+a:hover, a:active {
+    color: inherit; /* Цвет текста ссылки при наведении и нажатии */
+}
