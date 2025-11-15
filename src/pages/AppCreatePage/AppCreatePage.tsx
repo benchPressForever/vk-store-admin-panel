@@ -9,7 +9,7 @@ import {addApps} from "../../store/appsReducer.ts";
 import {useState} from "react";
 import {fileService} from "../../services/file.service.ts";
 import {useNavigate} from "react-router";
-import {MAIN_ROUTE, MY_APPS_ROUTE} from "../../utils/constants.ts";
+import { MY_APPS_ROUTE} from "../../utils/constants.ts";
 
 
 
@@ -36,7 +36,7 @@ export const AppCreatePage = () => {
     } = useForm<TypeAppFormCreate>({
         mode: 'onChange',
         defaultValues: {
-            DeveloperID : 1,
+            DeveloperID : User?.id || 1,
             Categories  : EnumCategories.games,
             AgeRestriction : 1,
             Description: "",
@@ -54,7 +54,7 @@ export const AppCreatePage = () => {
     });
 
 
-    const { mutate, isPending } = useMutation({
+    const { mutate} = useMutation({
         mutationKey: ['app_create'],
         mutationFn: (data: TypeAppFormCreate) => appService.create(data),
         onSuccess(data) {
