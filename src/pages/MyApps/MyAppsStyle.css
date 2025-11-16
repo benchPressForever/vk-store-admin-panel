@@ -226,3 +226,41 @@ footer {
 .apps-table .actions {
     justify-content: flex-end;
 }
+
+
+.search-block {
+    border: 1px solid #f3f3f3;
+    border-radius: 10px;
+    padding: 0 15px;
+    display:flex;
+    position:absolute;
+    right: 5%;
+    top: 50px;
+}
+
+.search-block input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+    outline:none;
+    background: var(--wrapper-bc-color);
+    transition: 1s;
+}
+
+.search-block img:first-child{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top:30%;
+    left:3px;
+}
+
+.clearSearch{
+    position:absolute;
+    right: 10px;
+    top:12px;
+    width: 18px;
+    height: 18px;
+}
+

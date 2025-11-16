@@ -60,6 +60,8 @@ export const AppCreatePage = () => {
         onSuccess(data) {
             reset();
             dispatch(addApps(data));
+            alert("Приложение успешно создано!")
+            navigate(MY_APPS_ROUTE)
         },
         onError(error) {
             console.error('App create error:', error.message);
@@ -179,6 +181,9 @@ export const AppCreatePage = () => {
                                     <select onChange={onChange} value={value} style = {{width:"99%"}}>
                                         <option value={EnumCategories.sport}>Спорт</option>
                                         <option value={EnumCategories.games}>Игры</option>
+                                        <option value={EnumCategories.strategy}>Стратегия</option>
+                                        <option value={EnumCategories.politics}>Политика</option>
+                                        <option value={EnumCategories.culture}>Культура</option>
                                     </select>
                                     <div className="errorDiv">{errors.Categories?.message}</div>
                                 </>

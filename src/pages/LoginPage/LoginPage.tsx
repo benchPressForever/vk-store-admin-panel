@@ -37,6 +37,7 @@ export const LoginPage = () => {
             dispatch(setUser(data.user));
             dispatch(setIsAuth(true))
             navigate(MAIN_ROUTE);
+            alert("Вы успешно авторизировались!")
         },
         onError(error) {
             console.error('Login error:', error.message);

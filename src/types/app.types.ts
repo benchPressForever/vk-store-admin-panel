@@ -28,6 +28,9 @@ export type TypeAppFormCreate = Omit<IAppResponse, "AppID"> & {
 export type TypeAppFormUpdate = Partial<TypeAppFormCreate>;
 
 export enum EnumCategories {
-    sport = "sport",
-    games = "games"
+    sport = "спорт",
+    games = "Игры",
+    politics = "Политика",
+    culture = "Культура",
+    strategy = "Стратегия"
 }

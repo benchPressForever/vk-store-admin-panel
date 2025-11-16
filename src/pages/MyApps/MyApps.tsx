@@ -12,7 +12,6 @@ import {APP_CREATE_ROUTE, APP_UPDATE_ROUTE} from "../../utils/constants.ts";
 export const MyApps = () => {
 
     const {apps} = useSelector((state:RootState) => state.Apps);
-
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -27,6 +26,7 @@ export const MyApps = () => {
         getApps();
     },[]);
 
+
     return (
         <div>
             <div className="headerApps">
@@ -35,6 +35,7 @@ export const MyApps = () => {
                     Добавить приложение
                 </button>
             </div>
+
 
             <div>
                 <div>
