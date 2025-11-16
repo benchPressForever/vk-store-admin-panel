@@ -4,29 +4,35 @@ export interface ILoginForm {
 }
 
 export interface IRegisterForm extends ILoginForm{
-	name: string
-	age:number
-	gender:EnumUserGender
+    email: string,
+    password: string,
+    password2: string,
+    first_name: string,
+    last_name: string
+
 }
 
 
-export enum EnumUserGender {
-	male = "male",
-	female = "female"
-}
 
 
 export interface IUser {
-	id: number
-	name: string
-	email: string
-    age : number,
-	gender:EnumUserGender
+    "id": number,
+    "email": string,
+    "first_name": string,
+    "last_name": string,
+    "is_email_verified": boolean,
 }
 
 export interface IAuthResponse {
-	accessToken: string
+    access_token: string,
+    refresh_token: string,
+    token_type: string,
 	user: IUser
+}
+
+export interface DataResponse {
+    "responce_code": number,
+    "data":IAuthResponse
 }
 
 export type TypeUserForm = Omit<IUser, 'id'> & { password?: string }

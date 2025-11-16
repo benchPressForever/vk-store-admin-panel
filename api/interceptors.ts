@@ -15,6 +15,4 @@ const axiosWithAuth = axios.create(options)
 
 
 
-
-
 export { axiosClassic, axiosWithAuth }

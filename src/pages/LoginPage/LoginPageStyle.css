@@ -1,0 +1,31 @@
+.LoginDiv{
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border:1px solid #eaeaea;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 10%;
+}
+
+.ContainerLogin{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginDiv input,select,textarea{
+    width: 95%;
+    height: auto;
+    border-radius:10px;
+    border:1px solid #eaeaea;
+    margin-top: 1%;
+    background-color: white;
+    color: black;
+    padding: 2%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}

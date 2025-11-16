@@ -65,7 +65,7 @@ export const MyApps = () => {
                                         <td>
                                             <div className="app-info">
                                                 <div className="app-icon">
-                                                    {app.AppName.charAt(0)}
+                                                    <img src = {`https://commit-store.ru/api/images/${app.SmallIconID}`} width={40} height={40} />
                                                 </div>
                                             </div>
                                         </td>
