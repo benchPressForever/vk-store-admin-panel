@@ -19,7 +19,7 @@ function Header (){
         <div className="header">
             <div className="logo">
                 <Link to = {MAIN_ROUTE}>
-                    <img src="./img/rustore.png" width={40} height={40} />
+                    <img src="./img/vkstore.png" width={50} height={50} />
                 </Link>
                 <Link to = {MAIN_ROUTE}>
                     <span style={ {color:"#0077ff",fontSize:"large",fontWeight:"bold"}}>VkStore</span>
