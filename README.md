@@ -1,4 +1,4 @@
-# 🏆 КомИТ | VKStore Admin Panel#
+# КомИТ | VKStore Admin Panel
 
 ## 🌟 Резюме решения
 
