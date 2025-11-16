@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# 🏆 КомИТ | VKStore Admin Panel#
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌟 Резюме решения
 
-Currently, two official plugins are available:
+В рамках задания хакатона по разработке **MVP Витрины приложений RuStore** мы сфокусировались на создании **Административной панели для разработчиков**, которая является критически важной частью экосистемы магазина.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Наше решение представляет собой **SPA (Single Page Application)** на React/TypeScript, обеспечивающее разработчикам полный цикл управления своими приложениями: от регистрации до публикации, обновления и просмотра статистики.
 
-## React Compiler
+### Достигнутые цели
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Требование | Соответствие | Примечание |
+| :--- | :--- | :--- |
+| **MVP Витрины** (Админ. панель) | ✅ | Реализован интерфейс для разработчиков, который является обратной стороной витрины приложений. |
+| **Web с адаптивной версткой** | ✅ | Используются стили (CSS) для базовой адаптивности, UI построен на компонентной модели React. |
+| **Экраны Аутентификации** | ✅ | Реализованы **Login** и **Register** с валидацией форм. |
+| **Просмотр списка приложений** | ✅ | Реализован экран **Мои приложения** с таблицей и статистикой. |
+| **Формы создания/обновления** | ✅ | Разработан сложный экран **Создания приложения** с обработкой полей и загрузкой файлов (APK/Иконки/Скриншоты). |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🏗️ Архитектура и Технологический стек
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Проект имеет четкую слоистую архитектуру с разделением обязанностей: **UI (React), State Management (Redux/Query), API (Services).**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Технологии
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Категория | Технология | Роль в проекте |
+| :--- | :--- | :--- |
+| **Frontend** | React, TypeScript, Vite | Быстрая разработка и статическая типизация. |
+| **State Management** | Redux Toolkit | Управление глобальным состоянием (`IsAuth`, `User`, `Apps`). |
+| **Server State** | **TanStack Query** | Эффективное управление кэшированием данных приложений (с `staleTime: 5 минут`) и запросами. |
+| **Роутинг** | React Router DOM | Управление навигацией, реализован **Защищенный роутинг** (`AppRouter.tsx`). |
+| **Взаимодействие с API** | Axios (с Interceptors) | Разделение на `axiosClassic` (для Auth) и `axiosWithAuth` (для защищенных маршрутов). |
+| **Формы** | React Hook Form | Упрощение работы со сложными формами и клиентской валидацией. |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 📂 Структура проекта
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+vk-store-admin-panel/<br>
+├── .env # Конфигурация VITE_API_URL<br>
+├── routers.ts # Конфигурация публичных и авторизованных маршрутов<br>
+├── src/<br>
+├── api/ # Конфигурация Axios/Интерцепторы<br>
+├── components/ # Переиспользуемые компоненты (Header, InfoBlock, AppRouter)<br>
+├── pages/ # Экраны приложения (Login, Register, MyApps, AppCreate/Update, Profile)<br>
+├── services/ # API-слой (auth.service, app.service, file.service)<br>
+├── store/ # Redux Store (index, userReducer, appsReducer)<br>
+├── types/ # TypeScript Interfaces и Types (IUser, IAppResponse и т.д.)<br>
+└── utils/<br>
+&emsp;&emsp;&emsp;└── constants.ts # Константы маршрутов<br>
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+---
+
+## 💡 Реализованный функционал
+
+### 1. Аутентификация
+
+* **Логин (`/login`):** Обработка формы с помощью `React Hook Form` и отправка запроса через `auth.service.login`. При успехе — обновление состояния Redux (`IsAuth = true`) и навигация на `/`.
+* **Регистрация (`/register`):** Заготовка формы регистрации.
+* **Защита маршрутов:** Компонент `AppRouter.tsx` использует состояние `IsAuth` из Redux для динамического рендеринга публичных или авторизованных роутов.
+
+### 2. Управление приложениями
+
+* **Мои приложения (`/my-apps`):**
+    * Получение списка приложений через `appService.getAll()` (кэшируется с помощью TanStack Query).
+    * Отображение данных в табличном виде с базовой статистикой.
+    * Кнопки навигации для создания и редактирования.
+* **Создание приложения (`/app-create`):**
+    * Сложная форма с полями для названия, описания, категории и **обработкой файлов** (иконки, скриншоты, APK).
+    * **Последовательная загрузка файлов:** Сначала файлы отправляются через `fileService.upload...`, затем полученные ID файлов используются для создания записи в `app.service.create()`.
+    * Кнопка отправки **деактивирована**, пока не загружены все необходимые файлы.
+
+### 3. Пользовательский интерфейс и навигация
+
+* **Header:** Динамическое отображение ссылок (Login/Мои приложения) в зависимости от статуса авторизации (`IsAuth`).
+* **Обработка 404:** Реализован красивый компонент `Info` для обработки несуществующих страниц или страниц, требующих авторизации.
+* **Профиль (`/profile`):** Заготовка экрана для информации о разработчике.
