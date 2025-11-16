@@ -3,7 +3,7 @@ import {authRouters, publicRouters} from "../../routers.ts";
 import {useSelector} from "react-redux";
 import type {RootState} from "../store";
 import {Info} from "./InfoBlock/Info.tsx";
-import {MAIN_ROUTE} from "../utils/constants.ts";
+import {LOGIN_ROUTE, MAIN_ROUTE} from "../utils/constants.ts";
 
 export function AppRouter() {
     const { IsAuth } = useSelector((state:RootState) => state.User);
@@ -27,7 +27,7 @@ export function AppRouter() {
                               imageUrl = {"/img/image.png"}
                               width = {70}
                               height = {70}
-                              navigateTo = {MAIN_ROUTE}/>
+                              navigateTo = {IsAuth ? MAIN_ROUTE : LOGIN_ROUTE}/>
                 </div>
             }
             />
